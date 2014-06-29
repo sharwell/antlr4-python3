@@ -34,6 +34,8 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.antlr.v4.runtime.RuntimeMetaData;
+
 /**
  *
  * @author Eric Vergnaud
@@ -68,7 +70,9 @@ public class Python3Target extends AbstractPythonTarget {
 
 	@Override
 	public String getVersion() {
-		return "4.4.0";
+		// Reference RuntimeMetadata.VERSION instead of Tool.VERSION to ensure
+		// it's treated as a compile-time constant
+		return RuntimeMetaData.VERSION;
 	}
 
 	/** Avoid grammar symbols in this set to prevent conflicts in gen'd code. */
